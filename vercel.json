@@ -1,8 +1,5 @@
 {
   "buildCommand": "npm install && npm run build",
-  "installCommand": "npm install",
-  "framework": "nextjs",
-  "buildEnvironment": {
-    "PYTHON_VERSION": "3.9"
-  }
+  "installCommand": "pip install python && npm install",
+  "framework": "nextjs"
 }
