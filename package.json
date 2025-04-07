@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel-build": "apt-get update && apt-get install -y python3 && npm run build"
   },
   "dependencies": {
     "@distube/ytdl-core": "^4.16.4",

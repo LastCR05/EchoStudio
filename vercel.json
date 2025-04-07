@@ -1,5 +1,0 @@
-{
-  "buildCommand": "npm install && npm run build",
-  "installCommand": "pip install python && npm install",
-  "framework": "nextjs"
-}
