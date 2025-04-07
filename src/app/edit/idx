@@ -1,0 +1,9 @@
+        <div className="flex flex-col items-center">
+          <Spinner className="text-white" size="large" show={true}>
+            Loading...
+          </Spinner>
+          <ErrorAnimation size="large" show={true} />
+          <Button loading variant="default">
+            Submit
+          </Button>
+        </div>

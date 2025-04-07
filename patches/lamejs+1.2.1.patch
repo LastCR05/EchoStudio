@@ -1,0 +1,73 @@
+diff --git a/node_modules/lamejs/src/js/BitStream.js b/node_modules/lamejs/src/js/BitStream.js
+index dd9d69f..054941f 100644
+--- a/node_modules/lamejs/src/js/BitStream.js
++++ b/node_modules/lamejs/src/js/BitStream.js
+@@ -30,6 +30,7 @@ BitStream.NEQ = function (a, b) {
+ };
+ 
+ function BitStream() {
++    var Lame = require('./Lame.js');
+     var self = this;
+     var CRC16_POLYNOMIAL = 0x8005;
+ 
+diff --git a/node_modules/lamejs/src/js/Encoder.js b/node_modules/lamejs/src/js/Encoder.js
+index 4fea74e..3c43761 100644
+--- a/node_modules/lamejs/src/js/Encoder.js
++++ b/node_modules/lamejs/src/js/Encoder.js
+@@ -109,6 +109,7 @@ Encoder.fircoef = [-0.0207887 * 5, -0.0378413 * 5,
+ function Encoder() {
+     var NewMDCT = require('./NewMDCT.js');
+     var III_psy_ratio = require('./III_psy_ratio.js');
++    var MPEGMode = require('./MPEGMode.js');
+ 
+     var FFTOFFSET = Encoder.FFTOFFSET;
+     var MPG_MD_MS_LR = Encoder.MPG_MD_MS_LR;
+diff --git a/node_modules/lamejs/src/js/Lame.js b/node_modules/lamejs/src/js/Lame.js
+index d2dc7c0..b90bdd6 100644
+--- a/node_modules/lamejs/src/js/Lame.js
++++ b/node_modules/lamejs/src/js/Lame.js
+@@ -26,6 +26,7 @@ var Tables = require('./Tables.js');
+ var Encoder = require('./Encoder.js');
+ 
+ function Lame() {
++    var MPEGMode = require('./MPEGMode.js');
+     var self = this;
+     var LAME_MAXALBUMART = (128 * 1024);
+ 
+diff --git a/node_modules/lamejs/src/js/Presets.js b/node_modules/lamejs/src/js/Presets.js
+index a3de3c6..dbbe335 100644
+--- a/node_modules/lamejs/src/js/Presets.js
++++ b/node_modules/lamejs/src/js/Presets.js
+@@ -15,6 +15,7 @@ var new_int_n = common.new_int_n;
+ var assert = common.assert;
+ 
+ function Presets() {
++    var Lame = require('./Lame.js');;
+     function VBRPresets(qual, comp, compS,
+                         y, shThreshold, shThresholdS,
+                         adj, adjShort, lower,
+diff --git a/node_modules/lamejs/src/js/PsyModel.js b/node_modules/lamejs/src/js/PsyModel.js
+index e440280..3df5641 100644
+--- a/node_modules/lamejs/src/js/PsyModel.js
++++ b/node_modules/lamejs/src/js/PsyModel.js
+@@ -159,6 +159,8 @@ var FFT = require("./FFT.js");
+ var Encoder = require("./Encoder.js");
+ 
+ function PsyModel() {
++    var MPEGMode = require('./MPEGMode.js');
++
+ 
+     var fft = new FFT();
+ 
+diff --git a/node_modules/lamejs/src/js/QuantizePVT.js b/node_modules/lamejs/src/js/QuantizePVT.js
+index ef69bef..54e5064 100644
+--- a/node_modules/lamejs/src/js/QuantizePVT.js
++++ b/node_modules/lamejs/src/js/QuantizePVT.js
+@@ -51,6 +51,7 @@ QuantizePVT.IXMAX_VAL = 8206;
+ 
+ function QuantizePVT() {
+ 
++    var BitStream = require('./BitStream.js');
+     var tak = null;
+     var rv = null;
+     var psy = null;
